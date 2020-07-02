@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Boggle Setup{% endblock %}
+
+{% block content %}
+<h2>Welcome!</h2>
+<p>For this session the highscore is {{highscore}} after {{times_played}} times played.</p>
+<form action="/board" id="size-form">
+    <label for="size-input">Choose your board size (number of rows and columns):</label>
+    <input id="size-input" type="number" min="5" max ="25" value="5" name="size-input">
+    <input type="submit">
+</form>
+
+{% endblock %}
+
+

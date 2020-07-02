@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Boggle!{% endblock %}
+
+{% block content %}
+
+<div id="timer-container"></div>
+
+<table id="board">
+    <tbody>
+    {% for row in board %}
+    <tr class="row">
+        {% for letter in row %}
+        <td class="letter">{{letter}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div id="score-container">0</div>
+
+<form action="" id="word-form" autocomplete="off">
+    <label for="word-input">Enter word:</label>
+    <input id="word-input" type="text" pattern="[A-Za-z]{1,}" placeholder="Word..." required title="Words be at least 1 letter long.">
+    <input type="submit">
+</form>
+<p id="result"></p>
+
+
+{% endblock %}
+
+
