@@ -2,29 +2,46 @@
 {% block title %}Boggle!{% endblock %}
 
 {% block content %}
+<section id="game-container">
+    <div id="head-container">
+        <div id="newgame"><button onclick="window.location.reload();" id="newgame-btn">New Game</button></div>
+        <div id="timer-container"></div>
+        <div id="hint"></div>
+    </div>
 
-<div id="timer-container"></div>
-
-<table id="board">
-    <tbody>
-    {% for row in board %}
-    <tr class="row">
-        {% for letter in row %}
-        <td class="letter">{{letter}}</td>
+    <table id="board">
+        <tbody>
+        {% for row in board %}
+        <tr class="row">
+            {% for letter in row %}
+            <td class="letter">{{letter}}</td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
-<div id="score-container">0</div>
+    <div id="end-splash" style="display: none;"><p id="end-splash-text"></p><button onclick="window.location.reload();" id="newgame-btn-splash">New Game</button></div>
 
-<form action="" id="word-form" autocomplete="off">
-    <label for="word-input">Enter word:</label>
-    <input id="word-input" type="text" pattern="[A-Za-z]{1,}" placeholder="Word..." required title="Words be at least 1 letter long.">
-    <input type="submit">
-</form>
-<p id="result"></p>
+    <div id="foot-container">
+        <div class="word-container" id="scored-words-container">Scored Words
+            <div class=submitted-words id="scored-words"></div>
+        </div>
+        <div id="score-container">Score
+            <div id="score">0</div>
+        </div>
+        <div class="word-container"id="attempted-words-container">Attempted Words
+            <div class=submitted-words id="attempted-words"></div>
+
+        </div>
+    </div>
+
+    <form action="" id="word-form" autocomplete="off">
+        <label for="word-input">Enter word:</label>
+        <input autofocus id="word-input" type="text" pattern="[A-Za-z]{1,}" placeholder="Word..." required title="Words be at least 1 letter long.">
+        <input type="submit">
+    </form>
+</section>
 
 
 {% endblock %}
